@@ -15,10 +15,6 @@ const regexCheck = (input) => {
     return ipAddressRegex.test(input);
 }
 
-const inputCheck = () => {
-
-}
-
 const displayData = async () => {
     const data = await getData(input.value);
     const locationInfoCard = document.createElement('div');
