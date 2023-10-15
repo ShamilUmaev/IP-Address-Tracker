@@ -52,4 +52,4 @@ const onSubmit = (e) => {
 }
 
 form.addEventListener('submit', onSubmit);
-// window.addEventListener('DOMContentLoaded', displayData);
+window.addEventListener('DOMContentLoaded', displayData);
