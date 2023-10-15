@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@500;700&family=Rubik:wght@400;500;700&display=swap');
 
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -13,10 +14,66 @@ html {
 body {
     min-width: 100%;
     min-height: 100vh;
-    font-family: 'Rubik', 'Poppins', 'Manrope' sans-serif;
+    font-family: 'Rubik', 'Poppins', 'Manrope', sans-serif;
     font-size: 1.8rem;
     line-height: 1.6;
 }
+
+/* Page container */
+.page-container {
+    height: 100vh;
+}
+
+/* Header top */
+.header-top {
+    height: 35%;
+    background: url("./images/pattern-bg-mobile.png") no-repeat center center / cover;
+}
+
+.logo {
+    font-size: 2.6rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.form {
+    width: 88%;
+    margin: 0 auto;
+    display: flex;
+}
+
+input[type="text"], input[type="submit"] {
+    
+}
+
+input[type="text"] {
+    width: 82%;
+    padding: 1.8rem 2.3rem;
+    border: none;
+    outline: none;
+    border-radius: 15px 0 0 15px;
+    font-size: inherit;
+}
+
+.submit-btn {
+    width: 18%;
+    padding: 1.8rem;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bolder;
+}
+
+/* Main */
+.main {
+    height: 65%;
+    background-color: blue;
+}
+
 
 .attribution { 
     font-size: 11px; text-align: center; 
