@@ -44,10 +44,6 @@ body {
     display: flex;
 }
 
-input[type="text"], input[type="submit"] {
-    
-}
-
 input[type="text"] {
     width: 82%;
     padding: 1.8rem 2.3rem;
@@ -73,7 +69,6 @@ input[type="text"] {
     height: 65%;
     background-color: blue;
 }
-
 
 .attribution { 
     font-size: 11px; text-align: center; 
