@@ -46,10 +46,47 @@ const onSubmit = (e) => {
     e.preventDefault();
     if(input.value !== '' && regexCheck(input.value)) {
         displayData();
+        updateMarker();
     } else {
         console.log('Error');
     }
 }
 
+let map;
+let marker;
+
+const initializeMap = async () => {
+    const data = await getData(input.value);
+    map = L.map('map');
+    map.setView([data.location.lat, data.location.lng], 8);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    marker = L.marker([data.location.lat, data.location.lng]);
+    marker.addTo(map);
+    // marker.bindPopup(`<h3>${data.location.city}, ${data.location.region}</h3>`)
+    // marker.openPopup();   
+}
+
+const updateMarker = async () => {
+    const data = await getData(input.value);
+    if(marker) {
+        map.removeLayer(marker);
+    }
+    marker = L.marker([data.location.lat, data.location.lng]);
+    marker.addTo(map);
+    // marker.bindPopup(`<h3>${data.location.city}, ${data.location.region}</h3>`)
+    // marker.openPopup(); 
+
+    map.setView([data.location.lat, data.location.lng], 8);
+}
+
+const loadMapAndData = () => {
+    displayData();
+    initializeMap();
+}
+
 form.addEventListener('submit', onSubmit);
-window.addEventListener('DOMContentLoaded', displayData);
+window.addEventListener('DOMContentLoaded', loadMapAndData);
