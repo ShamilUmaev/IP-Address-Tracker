@@ -1,9 +1,11 @@
 const headerTop = document.querySelector('.header-top');
 const form = document.querySelector('form');
 const input = document.querySelector("input[type='text']");
+const errorMsg = document.querySelector('.form p');
+const submitBtn = document.querySelector('.submit-btn')
 
 const getData = async (ipAddress) => {
-    const API_KEY = 'at_JoyDSiNRFOX1PORc0djxuFA4rULSk';
+    const API_KEY = 'at_f2YdihbI5TxaDvzq5oylh2F4lUl8l';
     const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipAddress}`);
     const data = await response.json();
     console.log(data);
@@ -13,6 +15,20 @@ const getData = async (ipAddress) => {
 const regexCheck = (input) => {
     const ipAddressRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.([25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.([25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.([25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     return ipAddressRegex.test(input);
+}
+
+const isInputValid = (errMsg) => {
+    input.style.outline = "1.5px solid red"
+    input.style.color = "red"
+    submitBtn.style.outline = "1.5px solid red"
+    errorMsg.textContent = errMsg;
+}
+
+const onFocus = () => {
+    input.style.outline = "none";
+    input.style.color = "hsl(0, 0%, 17%)";
+    submitBtn.style.outline = "none";
+    errorMsg.textContent = "";
 }
 
 const displayData = async () => {
@@ -44,11 +60,16 @@ const displayData = async () => {
 
 const onSubmit = (e) => {
     e.preventDefault();
-    if(input.value !== '' && regexCheck(input.value)) {
+    if(input.value === '') {
+        isInputValid('The input field is empty');
+        return;
+    } else if (!regexCheck(input.value)) {
+        isInputValid('The IP address is not valid');
+        return;
+    } else {
+        onFocus();
         displayData();
         updateMarker();
-    } else {
-        console.log('Error');
     }
 }
 
@@ -89,4 +110,5 @@ const loadMapAndData = () => {
 }
 
 form.addEventListener('submit', onSubmit);
+input.addEventListener('focus', onFocus);
 window.addEventListener('DOMContentLoaded', loadMapAndData);

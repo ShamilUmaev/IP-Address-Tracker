@@ -44,8 +44,15 @@ body {
 }
 
 .form {
-    width: 77%;
+    width: 75%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-inner-container {
+    width: 100%;
     display: flex;
 }
 
@@ -72,7 +79,7 @@ input[type="text"] {
 
 /* Location info card */
 .location-info-card {
-    width: 77%;
+    width: 75%;
     background-color: #fff;
     border-radius: 15px;
     text-align: center;
@@ -117,4 +124,12 @@ input[type="text"] {
 
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+/* Utility Classes */
+.error-msg {
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    color: red;
+    /* font-style: italic; */
 }
