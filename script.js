@@ -18,17 +18,19 @@ const regexCheck = (input) => {
 }
 
 const isInputValid = (errMsg) => {
-    input.style.outline = "1.5px solid red"
-    input.style.color = "red"
-    submitBtn.style.outline = "1.5px solid red"
-    errorMsg.textContent = errMsg;
+    input.style.outline = "1.5px solid red";
+    submitBtn.style.outline = "1.5px solid red";
+    input.value = "";
+    input.placeholder = `${errMsg}`;
+    input.classList.add('error-placeholder');
 }
 
 const onFocus = () => {
     input.style.outline = "none";
     input.style.color = "hsl(0, 0%, 17%)";
     submitBtn.style.outline = "none";
-    errorMsg.textContent = "";
+    input.placeholder = 'Search for any IP address';
+    input.classList.remove('error-placeholder');
 }
 
 const displayData = async () => {
@@ -61,10 +63,10 @@ const displayData = async () => {
 const onSubmit = (e) => {
     e.preventDefault();
     if(input.value === '') {
-        isInputValid('The input field is empty');
+        isInputValid('Please fill in the IP address...');
         return;
     } else if (!regexCheck(input.value)) {
-        isInputValid('The IP address is not valid');
+        isInputValid('The IP address is not valid...');
         return;
     } else {
         onFocus();

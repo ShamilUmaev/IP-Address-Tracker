@@ -13,7 +13,7 @@ html {
 
 body {
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     font-family: 'Rubik', 'Poppins', 'Manrope', sans-serif;
     font-size: 1.8rem;
     line-height: 1.6;
@@ -46,13 +46,6 @@ body {
 .form {
     width: 75%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.form-inner-container {
-    width: 100%;
     display: flex;
 }
 
@@ -126,10 +119,12 @@ input[type="text"] {
     color: hsl(228, 45%, 44%); 
 }
 
-/* Utility Classes */
-.error-msg {
-    font-size: 1.2rem;
-    letter-spacing: .1rem;
+.error-placeholder::-webkit-input-placeholder {
     color: red;
-    /* font-style: italic; */
+    font-style: italic;
+    font-size: 1.4rem;
 }
+
+/* .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: none;
+} */
