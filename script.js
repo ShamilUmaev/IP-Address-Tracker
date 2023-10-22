@@ -2,7 +2,8 @@ const headerTop = document.querySelector('.header-top');
 const form = document.querySelector('form');
 const input = document.querySelector("input[type='text']");
 const errorMsg = document.querySelector('.form p');
-const submitBtn = document.querySelector('.submit-btn')
+const submitBtn = document.querySelector('.submit-btn');
+const loader = document.querySelector('.loader');
 
 const getData = async (ipAddress) => {
     const API_KEY = 'at_f2YdihbI5TxaDvzq5oylh2F4lUl8l';
@@ -79,6 +80,7 @@ let map;
 let marker;
 
 const initializeMap = async () => {
+    showHideLoader('block');
     const data = await getData(input.value);
     map = L.map('map');
     map.setView([data.location.lat, data.location.lng], 8);
@@ -89,6 +91,7 @@ const initializeMap = async () => {
 
     marker = L.marker([data.location.lat, data.location.lng]);
     marker.addTo(map);
+    showHideLoader('none');
     // marker.bindPopup(`<h3>${data.location.city}, ${data.location.region}</h3>`)
     // marker.openPopup();   
 }
@@ -103,12 +106,18 @@ const updateMarker = async () => {
     // marker.bindPopup(`<h3>${data.location.city}, ${data.location.region}</h3>`)
     // marker.openPopup(); 
 
-    map.setView([data.location.lat, data.location.lng], 8);
+    map.flyTo([data.location.lat, data.location.lng], 8, {
+        duration: 2
+    });
 }
 
 const loadMapAndData = () => {
     displayData();
     initializeMap();
+}
+
+const showHideLoader = (display) => {
+    loader.style.display = display;
 }
 
 form.addEventListener('submit', onSubmit);
