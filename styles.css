@@ -213,6 +213,47 @@ input[type="text"] {
     
 }
 
+/* Medium devices landscape */
+@media screen and (orientation: landscape) and (min-width: 727px) and (max-height: 768px) {
+    
+    .location-info-card {
+        max-width: 82%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        text-align: left;
+        padding: 3rem 2rem;
+    }
+
+    .info-card-inner-ctr {
+        width: 25%;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .split-line {
+        display: block;
+        height: 80%;
+        width: 1.5px;
+        background-color: hsl(0, 0%, 80%);
+        align-self: center;
+    }
+
+    .label {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-card-inner-ctr h4 {
+        font-size: 1.8rem;
+    }
+
+    /* Utility classes */
+    .mg-right {
+        margin-right: 3rem;
+    }
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
