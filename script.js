@@ -1,7 +1,6 @@
 const headerTop = document.querySelector('.header-top');
 const form = document.querySelector('form');
 const input = document.querySelector("input[type='text']");
-const errorMsg = document.querySelector('.form p');
 const submitBtn = document.querySelector('.submit-btn');
 const loader = document.querySelector('.loader');
 
