@@ -304,3 +304,40 @@ input[type="text"] {
     }
 }
 
+/* Extra large devices (large laptops and desktops, 1920px and up) */
+@media only screen and (min-width: 1920px) {
+
+    .logo {
+        font-size: 3.8rem;
+    }
+
+    input[type="text"] {
+        width: 88%;
+        padding: 2.2rem 2.3rem;
+        font-size: 2rem;
+    }
+    
+    .submit-btn {
+        width: 12%;
+        padding: 2.2rem;
+    }
+
+    .location-info-card {
+        padding: 2rem 4rem;
+    }
+
+    .label {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .info-card-inner-ctr h4 {
+        font-size: 3.2rem;
+    }
+
+    /* Utility classes */
+    .mg-right {
+        margin-right: 5rem;
+    }
+}
+
