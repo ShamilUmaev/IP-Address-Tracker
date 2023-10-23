@@ -13,50 +13,55 @@
 </head>
 <body>
   <div class="page-container">
+
+    <!-- Header with logo and location info card -->
     <header class="header-top">
+      <!-- Logo heading-->
       <h1 class="logo">IP Address Tracker</h1>
+      <!-- Form -->
       <form class="form" action="">
         <input type="text" name="ip-address" id="ip-address" placeholder="Search for any IP address">
         <button class="submit-btn" type="submit"><i class="fa-solid fa-chevron-right"></i></button>
       </form>
-      <!-- <div class="location-info-card"> -->
-        <!-- <div class="ip-address-ctr">
-          <p class="label">Ip Address</p>
-          <h4>192.212.174.101</h4>
+      <!-- Location info card -->
+      <div class="location-info-card">
+        <div class="info-card-inner-ctr">
+          <div>
+            <p class="label">Ip Address</p>
+            <h4>192.212.174.128</h4>
+          </div>
         </div>
-        <div class="location-ctr">
-          <p class="label">Location</p>
-          <h4>Brooklyn, NY 10001</h4>
+        <div class="info-card-inner-ctr">
+          <div class="split-line desktop-only mg-right"></div>
+          <div>
+            <p class="label">Location</p>
+            <h4>Brooklyn, NY 10001</h4>
+          </div>
         </div>
-        <div class="timezone-ctr">
-          <p class="label">Timezone</p>
-          <h4>UTC -05:00</h4>
+        <div class="info-card-inner-ctr">
+          <div class="split-line desktop-only mg-right"></div>
+          <div>
+            <p class="label">Timezone</p>
+            <h4>UTC -05:00</h4>
+          </div>
         </div>
-        <div class="isp-ctr">
-          <p class="label">ISP</p>
-          <h4>SpaceX Starlink</h4>
-        </div> -->
-      <!-- </div> -->
+        <div class="info-card-inner-ctr">
+          <div class="split-line desktop-only mg-right"></div>
+          <div>
+            <p class="label">ISP</p>
+            <h4>SpaceX Starlink</h4>
+          </div>
+        </div>
+      </div>
     </header>
+
+    <!-- Map -->
     <main class="main">
       <div id="map" class="map">
         <div class="loader hidden"></div>
       </div>
     </main>
-  </div>
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Shamil Umaev</a>. -->
+    
   </div>
 </body>
 </html>
-
-<!-- IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC add offset value dynamically using the API
-  ISP -->

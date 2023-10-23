@@ -6,7 +6,7 @@ const submitBtn = document.querySelector('.submit-btn');
 const loader = document.querySelector('.loader');
 
 const getData = async (ipAddress) => {
-    const API_KEY = 'at_f2YdihbI5TxaDvzq5oylh2F4lUl8l';
+    const API_KEY = 'at_API2UErgPIDBsBUuTILfLUtTRBvXy';
     const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipAddress}`);
     const data = await response.json();
     console.log(data);
@@ -39,21 +39,32 @@ const displayData = async () => {
     const locationInfoCard = document.createElement('div');
     locationInfoCard.classList.add('location-info-card');
     locationInfoCard.innerHTML = `
-        <div class="ip-address-ctr">
-            <p class="label">Ip Address</p>
-            <h4>${data.ip}</h4>
+        <div class="info-card-inner-ctr">
+            <div>
+                <p class="label">Ip Address</p>
+                <h4>${data.ip}</h4>
+            </div>
         </div>
-        <div class="location-ctr">
-            <p class="label">Location</p>
-            <h4>${data.location.city}, ${data.location.region}</h4>
+        <div class="info-card-inner-ctr">
+            <div class="split-line desktop-only mg-right"></div>
+            <div>
+                <p class="label">Location</p>
+                <h4>${data.location.city}, ${data.location.region}</h4>
+            </div>
         </div>
-        <div class="timezone-ctr">
-            <p class="label">Timezone</p>
-            <h4>UTC ${data.location.timezone}</h4>
+        <div class="info-card-inner-ctr">
+            <div class="split-line desktop-only mg-right"></div>
+            <div>
+                <p class="label">Timezone</p>
+                <h4>UTC ${data.location.timezone}</h4>
+            </div>
         </div>
-        <div class="isp-ctr">
-            <p class="label">ISP</p>
-            <h4>${data.isp}</h4>
+        <div class="info-card-inner-ctr">
+            <div class="split-line desktop-only mg-right"></div>
+            <div>
+                <p class="label">ISP</p>
+                <h4>${data.isp}</h4>
+            </div>
         </div>
     `;
 
@@ -82,7 +93,7 @@ let marker;
 const initializeMap = async () => {
     showHideLoader('block');
     const data = await getData(input.value);
-    map = L.map('map');
+    map = L.map('map', { zoomControl: false });
     map.setView([data.location.lat, data.location.lng], 8);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -107,7 +118,7 @@ const updateMarker = async () => {
     // marker.openPopup(); 
 
     map.flyTo([data.location.lat, data.location.lng], 8, {
-        duration: 2
+        duration: 4
     });
 }
 
