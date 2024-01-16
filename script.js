@@ -3,12 +3,13 @@ const form = document.querySelector('form');
 const input = document.querySelector("input[type='text']");
 const submitBtn = document.querySelector('.submit-btn');
 const loader = document.querySelector('.loader');
+const locationInfoCard = document.createElement('div');
+locationInfoCard.classList.add('location-info-card');
 
 const getData = async (ipAddress) => {
     const API_KEY = 'at_56A1zE8Ae6PDFXJ7Upr4DkfmZRhR1';
     const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipAddress}`);
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
@@ -35,8 +36,6 @@ const onFocus = () => {
 
 const displayData = async () => {
     const data = await getData(input.value);
-    const locationInfoCard = document.createElement('div');
-    locationInfoCard.classList.add('location-info-card');
     locationInfoCard.innerHTML = `
         <div class="info-card-inner-ctr">
             <div>
