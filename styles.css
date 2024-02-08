@@ -295,12 +295,18 @@ input[type="text"] {
     }
     
     .info-card-inner-ctr h4 {
-        font-size: 2.4rem;
+        font-size: 1.8rem;
     }
 
     /* Utility classes */
     .mg-right {
         margin-right: 3rem;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .info-card-inner-ctr h4 {
+        font-size: 2rem;
     }
 }
 
@@ -332,7 +338,7 @@ input[type="text"] {
     }
     
     .info-card-inner-ctr h4 {
-        font-size: 3.2rem;
+        font-size: 2.6rem;
     }
 
     /* Utility classes */
